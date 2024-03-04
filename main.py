@@ -1,15 +1,30 @@
+import json
+from typing import Union
+
 from fastapi import FastAPI
-from fastapi.responses import ORJSONResponse
+from fastapi.responses import ORJSONResponse, JSONResponse
+from pydantic import BaseModel
 
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/", response_class=JSONResponse)
 async def root():
-    return {"message": "Hello World"}
+    oo = {"hello": "world"}
+    return json.dumps(oo)
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    print(name)
-    return ORJSONResponse({"message": f"{name}"})
+class Item(BaseModel):
+    name: str
+    email: Union[str, None] = None
+    age: int
+
+
+@app.post(
+    "/items/",
+    response_model=Item,
+    response_class=ORJSONResponse,
+    summary="Create an item",
+)
+async def create_item(item: Item):
+    return item
