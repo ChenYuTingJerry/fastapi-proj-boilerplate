@@ -17,7 +17,7 @@ ENV VIRTUAL_ENV=/app/.venv \
     PATH=/app/.venv/bin:$PATH
 COPY --from=builder $VIRTUAL_ENV $VIRTUAL_ENV
 WORKDIR /app
-COPY main.py ./
+COPY ./app/main.py ./
 
 ENTRYPOINT ["gunicorn"]
 CMD ["main:app", "-w", "1", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0"]

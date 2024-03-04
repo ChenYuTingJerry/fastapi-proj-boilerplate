@@ -2,7 +2,7 @@
 name = "fastapiproject"
 version = "0.1.0"
 description = ""
-authors = ["Jerry Chen <jerrychen@17.media>"]
+authors = ["Jerry Chen <nmjk2000@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
