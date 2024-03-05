@@ -9,5 +9,5 @@ run:
 	docker run --rm -p $(PORT):$(PORT) -it $(APP_NAME):$(TAG)
 
 test:
-	http get http://localhost:8000
-	http post http://localhost:8000/items/ name=John age=40
+	http get http://localhost:8000/health
+	http get http://localhost:8000/users
