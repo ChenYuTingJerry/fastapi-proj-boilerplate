@@ -1,10 +1,10 @@
 import uuid
 
-from domain.models import User
-from domain.repositories import UserRepository
+from domain.models.user import User
+from domain.repositories.user_repo import IUserRepository
 
 
-class UserRepositoryImpl(UserRepository):
+class UserRepository(IUserRepository):
     async def get_by_id(self, user_id: str):
         return User(
             user_id=uuid.uuid4(),

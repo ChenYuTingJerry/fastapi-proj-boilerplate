@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABCMeta
 
 
-class UserService(metaclass=ABCMeta):
+class IUserService(metaclass=ABCMeta):
     @abstractmethod
     async def get_user(self):
         pass

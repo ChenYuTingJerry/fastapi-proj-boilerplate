@@ -1,12 +1,12 @@
 from fastapi import Depends
 
-from domain.repositories import UserRepository
-from domain.services import UserService
-from infra.repositories import UserRepositoryImpl
-from infra.services import UserServiceImpl
+from domain.repositories.user_repo import IUserRepository
+from domain.repositories.user_repo_impl import UserRepository
+from domain.services.user_service import IUserService
+from domain.services.user_service_impl import UserService
 
 
 def get_user_service(
-    user_repo: UserRepository = Depends(UserRepositoryImpl),
-) -> UserService:
-    return UserServiceImpl(user_repo=user_repo)
+    user_repo: IUserRepository = Depends(UserRepository),
+) -> IUserService:
+    return UserService(user_repo=user_repo)
