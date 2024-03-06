@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta9
+kind: Config
+metadata:
+  name: api-srv
+build:
+  tagPolicy:
+    dateTime: { }
+  local:
+    useDockerCLI: true
+    useBuildkit: true
+profiles:
+  - name: api-srv
+    build:
+      artifacts:
+        - image: api-srv
+          docker:
+            dockerfile: Dockerfile
+    manifests:
+      rawYaml:
+        - deploy/k8s/*.yaml

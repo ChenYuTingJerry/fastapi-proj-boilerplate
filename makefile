@@ -11,3 +11,7 @@ run:
 test:
 	http get http://localhost:8000/health
 	http get http://localhost:8000/users
+
+
+k8s-run:
+	skaffold dev --profile api-srv
