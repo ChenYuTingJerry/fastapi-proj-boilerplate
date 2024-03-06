@@ -3,7 +3,9 @@
 ## Prerequisites
 - python 3.11 up
 - [docker](https://docs.docker.com/desktop/install/mac-install/)
-- (optional) [httpie](https://httpie.io/docs/cli/installation)
+- [skaffold](https://skaffold.dev/)
+- [httpie](https://httpie.io/docs/cli/installation)
+- (optional) [stern](https://github.com/stern/stern)
 
 ## Project structure
 
@@ -31,21 +33,35 @@ It contains the definitions and implementation of repositories for communicating
 ### /app/infra
 It contains code related to infrastructure, such as database access, cache access, external services, etc.
 
-## Examples
+## Run
 
-### Build service
+### Docker
+#### Build service
 
 ```shell
 make build
 ```
 
-### Run service
+#### Run service
 
 ```shell
 make run
 ```
 
-### Test service
+#### Test service
+
+```shell
+make test
+```
+
+### k8s
+#### Build & run service
+
+```shell
+make k8s-run
+```
+
+#### Test service
 
 ```shell
 make test
