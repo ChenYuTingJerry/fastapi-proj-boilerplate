@@ -1,4 +1,5 @@
-FROM python:3.11-alpine as builder
+ARG PYTHON_VERSION=3.11
+FROM python:${PYTHON_VERSION}-alpine as builder
 
 # prepare poetry env
 ENV POETRY_VIRTUALENVS_IN_PROJECT=1 \
@@ -12,7 +13,7 @@ COPY pyproject.toml poetry.lock ./
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root
 
 # run app
-FROM python:3.11-alpine as runtime
+FROM python:${PYTHON_VERSION}-alpine as runtime
 ENV VIRTUAL_ENV=/app/.venv \
     PATH=/app/.venv/bin:$PATH
 COPY --from=builder $VIRTUAL_ENV $VIRTUAL_ENV

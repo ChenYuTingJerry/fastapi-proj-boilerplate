@@ -1,17 +1,16 @@
 APP_NAME=fastapi-proj-boilerplate
 TAG=latest
 PORT=8000
+TARGET_PORT=80
 
 build:
-	DOCKER_BUILDKIT=1 docker build . -t $(APP_NAME):$(TAG)
+	DOCKER_BUILDKIT=1 docker build --tag=$(APP_NAME):$(TAG) .
 
 run:
-	docker run --rm -p $(PORT):$(PORT) -it $(APP_NAME):$(TAG)
+	docker run --rm -p $(PORT):$(TARGET_PORT) -it $(APP_NAME):$(TAG)
 
 test:
-	http get http://localhost:8000/health
-	http get http://localhost:8000/users
-
+	http get http://localhost/users
 
 k8s-run:
 	skaffold dev --profile api-srv

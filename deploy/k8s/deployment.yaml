@@ -15,20 +15,20 @@ spec:
         app: api-srv
     spec:
       containers:
-        - name: api-srv
-          image: api-srv
-          ports:
-            - name: rest
-              containerPort: 8000
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            initialDelaySeconds: 5
-            periodSeconds: 5
+      - name: api-srv
+        image: api-srv
+        ports:
+        - name: rest
+          containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 5

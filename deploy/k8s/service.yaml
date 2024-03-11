@@ -8,5 +8,6 @@ spec:
     app: api-srv
   ports:
     - name: rest
-      port: 8051
+      protocol: TCP
+      port: 80
       targetPort: 8000

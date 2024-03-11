@@ -3,8 +3,6 @@ kind: Config
 metadata:
   name: api-srv
 build:
-  tagPolicy:
-    dateTime: { }
   local:
     useDockerCLI: true
     useBuildkit: true

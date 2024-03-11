@@ -1,13 +1,15 @@
 from fastapi import FastAPI
-from api.routes import users
 
-app = FastAPI()
-
-app.include_router(users.router)
-for route in app.routes:
-    print(route)
+from api.routes import users, root
 
 
-@app.get("/health")
-async def health():
-    return "ok"
+def create_app():
+    ap = FastAPI()
+
+    # set routes
+    ap.include_router(root.router)
+    ap.include_router(users.router)
+    return ap
+
+
+app = create_app()

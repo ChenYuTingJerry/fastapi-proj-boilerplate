@@ -1,10 +1,11 @@
 from domain.repositories.user_repo import IUserRepository
 from domain.services.user_service import IUserService
+from log import logger
 
 
 class UserService(IUserService):
-
     def __init__(self, user_repo: IUserRepository):
+        logger.info("UserService")
         self.user_repo = user_repo
 
     async def get_user(self):
