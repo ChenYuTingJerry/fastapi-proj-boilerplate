@@ -4,7 +4,7 @@
 - python 3.11 up
 - [docker](https://docs.docker.com/desktop/install/mac-install/)
 - [skaffold](https://skaffold.dev/)
-- [httpie](https://httpie.io/docs/cli/installation)
+- (optional) [httpie](https://httpie.io/docs/cli/installation)
 - (optional) [stern](https://github.com/stern/stern)
 
 ## Project structure
