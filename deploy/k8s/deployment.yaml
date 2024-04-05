@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api-srv
-          image: api-srv
+          image: <account-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/api-srv
           resources:
             limits:
               memory: 128Mi
