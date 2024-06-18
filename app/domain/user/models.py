@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel, EmailStr, UUID4, PositiveInt
+from pydantic import BaseModel, UUID4, PositiveInt, EmailStr
 
 
 class User(BaseModel):

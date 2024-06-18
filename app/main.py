@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from api.routes import users, root
+from routes import users, root
 
 
 def create_app():

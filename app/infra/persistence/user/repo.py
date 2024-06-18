@@ -1,7 +1,7 @@
 import uuid
 
-from domain.models.user import User
-from domain.repositories.user_repo import IUserRepository
+from domain.user.models import User
+from domain.user.repository import IUserRepository
 
 
 class UserRepository(IUserRepository):
